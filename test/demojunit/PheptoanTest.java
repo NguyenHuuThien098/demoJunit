@@ -12,18 +12,26 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author thien
  */
 public class PheptoanTest {
-    
-    Pheptoan pt;
-    
-    public PheptoanTest() {
-        pt = new Pheptoan();
-    }
 
     @Test
-    public void testMain() {
-        int kq = pt.Nhan(5, 7);
-        int kquamongmuon =35 ;
-        assertEquals(kq, kquamongmuon);
+    public void testNhan() {
+        Pheptoan pheptoanCalculator = new Pheptoan();
+
+        // Kiểm tra kết quả khi nhân hai số dương
+        int resultPositive = pheptoanCalculator.Nhan(5, 7);
+        assertEquals(35, resultPositive);
+
+        // Kiểm tra kết quả khi nhân một số dương và một số âm
+        int resultNegative = pheptoanCalculator.Nhan(5, -7);
+        assertEquals(-35, resultNegative);
+
+        // Kiểm tra kết quả khi nhân hai số âm
+        int resultBothNegative = pheptoanCalculator.Nhan(-5, -7);
+        assertEquals(35, resultBothNegative);
+
+        // Kiểm tra kết quả khi nhân một số bằng 0
+        int resultZero = pheptoanCalculator.Nhan(5, 0);
+        assertEquals(0, resultZero);
     }
     
 }
